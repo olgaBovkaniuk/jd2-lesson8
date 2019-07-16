@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+<generatorConfiguration>
+    <!--Driver specified jar Location of packages,What I use is mysql -->
+    <classPathEntry location="C:/Users/London/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>
+
+    <context id="hello_mysql" targetRuntime="MyBatis3">
+        <!-- Database Connection Information -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/hello_mysql?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false"
+                        userId="root"
+                        password="1234"/>
+
+        <!--entity Entity class-->
+        <javaModelGenerator targetPackage="by.pvt.dto" targetProject="c:/Users/London/ideaProjects/lesson5/hellomysql/src/main/java"/>
+
+        <!-- mybatis mapping xml file -->
+        <sqlMapGenerator targetPackage="by.pvt.config" targetProject="c:/Users/London/ideaProjects/lesson5/hellomysql/src/main/resources"/>
+
+        <!--mapper Interface -->
+        <javaClientGenerator targetPackage="by.pvt.dao" targetProject="c:/Users/London/ideaProjects/lesson5/hellomysql/src/main/java" type="XMLMAPPER"/>
+
+        <!--Data sheet-->
+        <table schema="hello_mysql" tableName="system_users"/>
+        <table schema="hello_mysql" tableName="clients"/>
+        <table schema="hello_mysql" tableName="products"/>
+        <table schema="hello_mysql" tableName="orders"/>
+
+    </context>
+</generatorConfiguration>

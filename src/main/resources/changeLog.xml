@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="bov">
+        <createTable tableName="system_users">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="bov">
+        <sql>
+            insert into `system_users` (`id`, `username`, `active`) values (1, 'Administrator', 1);
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="bov">
+        <sql>
+            alter table `system_users` add column `dateofbirth` timestamp;
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="bov">
+        <sql>
+            create table `clients` (
+            `client_id` int not null,
+            `first_name` varchar(150),
+            `second_name` varchar(150),
+            `date_of_birth` timestamp,
+            `male_female` char(1),
+            `email` varchar(100)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="bov">
+        <sql>
+            create table `products` (
+            `product_id` integer not null,
+            `product_name` varchar(250),
+            `price` double(10,2),
+            `exists` boolean
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="6" author="bov">
+        <sql>
+            create table `orders` (
+            `order_id` integer not null,
+            `client_id` integer not null,
+            `product_id` integer not null,
+            `number` integer unsigned not null
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
