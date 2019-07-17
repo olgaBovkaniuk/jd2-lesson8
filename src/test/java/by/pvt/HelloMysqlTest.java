@@ -1,14 +1,11 @@
 package by.pvt;
 
-import static org.junit.Assert.*;
-
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
-import java.io.FileInputStream;
 import java.sql.*;
 
 public class HelloMysqlTest extends DBTestCase {
