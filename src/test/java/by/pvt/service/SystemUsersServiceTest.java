@@ -63,8 +63,6 @@ public class SystemUsersServiceTest extends DBTestCase {
         IDataSet databaseDataSet = getConnection().createDataSet();
         ITable actualTable = databaseDataSet.getTable("system_users");
 
-        systemUsersService.getSystemUsers().stream().forEach(u -> System.out.println(u.getId() + " " + u.getUsername()));
-
         int count = systemUsersService.getSystemUsers().size();
 
         //then
